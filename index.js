@@ -1,22 +1,25 @@
-import express from 'express'
-const app = express();
-
-app.use(express.urlencoded({extended:true}))
-app.set('view engine', 'ejs')
-
-//Liberar acesso a pasta public
+import express from 'express';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { dirname, join } from 'path';
+import routes from './routes/route.js'; // rotas externas
+import alunoRoutes from './routes/AlunoRoutes.js';
 
-// Converte o caminho do arquivo atual
+const app = express();
+app.use(alunoRoutes)
+app.use(express.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+
+// Caminho correto das views e public
 const __filename = fileURLToPath(import.meta.url);
+
 const __dirname = dirname(__filename);
-app.use(express.static(__dirname + '/public'))
+
+// Servir arquivos estáticos
+app.use(express.static(join(__dirname, '/public')));
 app.set('views', join(__dirname, '/views'));
-//importa o arquivo de rotas
-import routes from "./routes/route.js"
 
-
+// Rotas
 app.use(routes)
-
 app.listen(3001)
+// Exporta o handler compatível com Vercel
+export default app;

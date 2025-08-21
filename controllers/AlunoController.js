@@ -7,7 +7,7 @@ export default class AlunoController{
         this.caminhoBase = caminhoBase
 
         this.openAdd = async(req, res)=>{
-            res.render(caminhoBase + add)
+            res.render(caminhoBase + "add")
         }
         this.add = async(req, res)=>{
             //criar aluno

@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import AlunoController from '../controllers/AlunoController'
+import AlunoController from '../controllers/AlunoController.js'
 const controle = new AlunoController();
 
 const caminhobase = 'aluno/'
