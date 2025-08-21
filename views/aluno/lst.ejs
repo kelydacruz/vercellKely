@@ -1,0 +1,25 @@
+<%-include('../cabecalho.ejs')%>
+    <h1>Alunos</h1>
+    <table>
+        <tr>
+            <td>Nome</td>
+            <td>Matrícula</td>
+            <td>Ações</td>
+        </tr>
+        <!--aqui vamos fazer o for-->
+        <!---<%Alunos.forEach(function(aluno){%>
+        <tr>
+            <td><%=aluno.nome%></td>
+            <td><%=aluno.matricula%></td>
+            <td></td>
+        </tr>
+        <%})%>-->
+        <%for(nome, matricula) as Alunos {%>
+             <tr>
+            <td><%=nome%></td>
+            <td><%=matricula%></td>
+            <td></td>
+        </tr>
+        <%}%>
+    </table>
+<%-include('../rodape.ejs')%>

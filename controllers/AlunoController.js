@@ -17,5 +17,9 @@ export default class AlunoController{
             });
             res.redirect('/'+caminhoBase + 'add');
     }
+    this.list = async(req,res)=>{
+        const resultado = await Aluno.find({})
+        res.render(caminhoBase + 'lst',{Alunos:resultado})
+    }
 }
 }
