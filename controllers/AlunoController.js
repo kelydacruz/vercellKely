@@ -11,11 +11,11 @@ export default class AlunoController{
         }
         this.add = async(req, res)=>{
             //criar aluno
-            await Aluno.creat({
+            await Aluno.create({
                 nome: req.body.nome,
                 matricula: req.body.matricula
             });
-            res.redirect('/'+caminhoBase + 'add');
+            res.redirect('/'+ caminhoBase + 'add');
     }
     this.list = async(req,res)=>{
         const resultado = await Aluno.find({})

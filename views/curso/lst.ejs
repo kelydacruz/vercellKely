@@ -1,0 +1,22 @@
+<%-include('../cabecalho.ejs')%>
+    <h1>Cursos</h1>
+    <a href="/curso/add">Curso</a>
+    <table>
+        <tr>
+            <td>Nome</td>
+            <td>Área</td>
+            <td>Ano de fundação</td>
+            <td>Nível</td>
+        </tr>
+      
+        <%for (const {nome, area, anofundacao, nivel} of Cursos ){%>
+             <tr>
+            <td><%=nome%></td>
+            <td><%=area%></td>
+            <td><%=anofundacao%></td>
+            <td><%=nivel%></td>
+            <td></td>
+        </tr>
+        <%}%>
+    </table>
+<%-include('../rodape.ejs')%>
